@@ -1,6 +1,4 @@
 import { LitElement, html, css } from 'lit-element';
-import { openWcLogo } from './open-wc-logo.js';
-
 export class TodoApp extends LitElement {
   static get properties() {
     return {
@@ -11,35 +9,23 @@ export class TodoApp extends LitElement {
   static get styles() {
     return css`
       :host {
-        min-height: 100vh;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: flex-start;
         font-size: calc(10px + 2vmin);
         color: #1a2b42;
+        min-height: 360px;
         max-width: 960px;
-        margin: 0 auto;
+        margin: 50px auto;
         text-align: center;
-        background-color: var(--todo-app-background-color);
+        padding: 15px;
+        background-color: #fff;
+        border-radius: 8px;
       }
 
       main {
         flex-grow: 1;
-      }
-
-      .logo > svg {
-        margin-top: 36px;
-        animation: app-logo-spin infinite 20s linear;
-      }
-
-      @keyframes app-logo-spin {
-        from {
-          transform: rotate(0deg);
-        }
-        to {
-          transform: rotate(360deg);
-        }
       }
 
       .app-footer {
@@ -55,33 +41,22 @@ export class TodoApp extends LitElement {
 
   constructor() {
     super();
-    this.title = 'My app';
   }
 
   render() {
     return html`
       <main>
-        <div class="logo">${openWcLogo}</div>
-        <h1>${this.title}</h1>
-
-        <p>Edit <code>src/TodoApp.js</code> and save to reload.</p>
-        <a
-          class="app-link"
-          href="https://open-wc.org/guides/developing-components/code-examples/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Code examples
-        </a>
+        <todo-input></todo-input>
+        <todo-tasks-list></todo-tasks-list>
       </main>
 
       <p class="app-footer">
-        🚽 Made with love by
+        Made with love by
         <a
           target="_blank"
           rel="noopener noreferrer"
-          href="https://github.com/open-wc"
-          >open-wc</a
+          href="https://github.com/byJavimo"
+          >byJavimo</a
         >.
       </p>
     `;
